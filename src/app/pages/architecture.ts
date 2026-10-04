@@ -54,18 +54,18 @@ import { DocPage, TocItem } from '../shared/doc-page';
           <div class="mt-4 grid gap-3 sm:grid-cols-2">
             <div class="rounded-lg bg-red-50 p-3 dark:bg-red-950/40">
               <p class="text-sm font-semibold text-slate-900 dark:text-white">
-                Module Club des Amis
+                Module Club des Affaires
               </p>
               <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
-                Événements, inscriptions, profil, QR code
+                Réseau, matching, mises en relation, opportunités · focus du hackathon
               </p>
             </div>
             <div class="rounded-lg bg-slate-100 p-3 dark:bg-slate-800">
               <p class="text-sm font-semibold text-slate-900 dark:text-white">
-                Module Club des Affaires
+                Module Club des Amis
               </p>
               <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
-                Réseau, matching, mises en relation, opportunités
+                Événements, inscriptions, profil, QR code
               </p>
             </div>
           </div>
@@ -134,7 +134,7 @@ import { DocPage, TocItem } from '../shared/doc-page';
       <p>
         Dès l'architecture papier, le backend a été pensé en
         <strong>deux modules indépendants</strong>. Pendant le hackathon, je me suis concentré sur
-        le <strong>Club des Amis</strong>, qui était le cœur du sujet ; le Club des Affaires
+        le <strong>Club des Affaires</strong>, qui était le cœur du sujet ; le Club des Amis
         s'appuie sur le même socle.
       </p>
       <p>

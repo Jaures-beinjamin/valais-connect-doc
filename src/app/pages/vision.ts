@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Callout } from '../shared/callout';
 import { DocPage, TocItem } from '../shared/doc-page';
-import { WEB_APP_URL } from '../project-links';
+import { DEMO_ACCESS_URL, WEB_APP_URL } from '../project-links';
 
 interface RoadmapStage {
   horizon: string;
@@ -49,26 +49,48 @@ interface RoadmapStage {
       <h2 id="modules">Deux clubs, une plateforme</h2>
       <p>
         Le backend a été pensé dès le départ en deux modules indépendants. Le
-        <strong>Club des Amis</strong> a été au centre du hackathon ; le
-        <strong>Club des Affaires</strong> pourra évoluer à son rythme (opportunités, mentorat,
-        statistiques d'impact économique) sans remettre en cause le socle commun.
+        <strong>Club des Affaires</strong> a été au centre du hackathon (réseau, matching, mises en
+        relation) ; le <strong>Club des Amis</strong> pourra évoluer à son rythme sur le même socle
+        commun, sans remettre en cause l'existant.
       </p>
 
       <h2 id="comptes">Comptes de démonstration</h2>
       <p>
         L'application est déployée sur
-        <a [href]="webAppUrl" target="_blank" rel="noopener">Azure</a>. Les comptes ci-dessous sont
-        des <strong>comptes fictifs</strong> créés pour la démonstration ; ils fonctionnent sur le
-        web comme sur l'application Android.
+        <a [href]="webAppUrl" target="_blank" rel="noopener">Azure</a>. Des
+        <strong>comptes fictifs</strong> ont été créés pour la démonstration ; ils fonctionnent sur
+        le web comme sur l'application Android. Les identifiants, ainsi que le lien de l'application
+        mobile, sont disponibles sur la page de démonstration :
       </p>
+      <a
+        [href]="demoAccessUrl"
+        target="_blank"
+        rel="noopener"
+        class="not-doc group my-6 flex items-center gap-4 rounded-2xl border-2 border-red-200 bg-red-50 p-5 transition hover:border-red-400 hover:shadow-md dark:border-red-900 dark:bg-red-950/40 dark:hover:border-red-700"
+      >
+        <img
+          src="images/icon-192.png"
+          alt=""
+          width="56"
+          height="56"
+          class="h-14 w-14 shrink-0 rounded-xl bg-white object-contain"
+        />
+        <span class="min-w-0">
+          <span
+            class="block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+          >
+            Accéder aux comptes de démonstration ↗
+          </span>
+          <span class="mt-1 block text-sm break-all text-slate-500">{{ demoAccessUrl }}</span>
+        </span>
+      </a>
+      <p>Les profils disponibles permettent de tester :</p>
       <div class="overflow-x-auto">
         <table>
           <thead>
             <tr>
               <th>Profil</th>
               <th>Ce que vous pourrez tester</th>
-              <th>E-mail</th>
-              <th>Mot de passe</th>
             </tr>
           </thead>
           <tbody>
@@ -78,8 +100,6 @@ interface RoadmapStage {
                   {{ profile[0] }}
                 </td>
                 <td>{{ profile[1] }}</td>
-                <td class="font-mono text-xs text-slate-400">à compléter</td>
-                <td class="font-mono text-xs text-slate-400">à compléter</td>
               </tr>
             }
           </tbody>
@@ -94,6 +114,7 @@ interface RoadmapStage {
 })
 export class VisionPage {
   protected readonly webAppUrl = WEB_APP_URL;
+  protected readonly demoAccessUrl = DEMO_ACCESS_URL;
 
   protected readonly toc: TocItem[] = [
     { id: 'vision', label: 'La vision' },

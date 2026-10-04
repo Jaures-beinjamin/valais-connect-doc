@@ -53,9 +53,10 @@ interface TimeSlot {
         <li>les attentes propres à chaque club et ce qui les distingue.</li>
       </ul>
       <p>
-        Ces échanges ont permis de recentrer le sujet : le <strong>Club Ami</strong> était le cœur
-        du hackathon. L'architecture a malgré tout été pensée pour accueillir les deux clubs comme
-        des modules indépendants (voir <a routerLink="/architecture">Architecture globale</a>).
+        Ces échanges ont permis de recentrer le sujet : le <strong>Club Affaire</strong> était le
+        cœur du hackathon. L'architecture a malgré tout été pensée pour accueillir les deux clubs
+        comme des modules indépendants (voir
+        <a routerLink="/architecture">Architecture globale</a>).
       </p>
 
       <h2 id="agile">Une approche agile : un sprint unique et intensif</h2>
@@ -63,7 +64,7 @@ interface TimeSlot {
         Une fois la phase de questions terminée, je suis passé à une
         <strong>méthodologie agile</strong> avec un <strong>sprint complet</strong>, organisé en
         sessions de travail de <strong>7 heures non-stop</strong>. Le sprint était volontairement
-        simple : un objectif clair (le Club Ami), un périmètre maîtrisé et des livrables
+        simple : un objectif clair (le Club Affaire), un périmètre maîtrisé et des livrables
         démontrables à chaque fin de session.
       </p>
 
@@ -180,7 +181,7 @@ export class MethodologyPage {
       details: [
         'Spécificités des mécanismes d’inscription des membres.',
         'Règles d’inscription aux événements.',
-        'Recentrage du périmètre du hackathon sur le Club Ami.',
+        'Recentrage du périmètre du hackathon sur le Club Affaire.',
       ],
     },
     {

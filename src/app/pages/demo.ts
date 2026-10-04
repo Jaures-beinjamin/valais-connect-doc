@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Callout } from '../shared/callout';
 import { DocPage, TocItem } from '../shared/doc-page';
-import { API_BASE_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
+import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
 
 @Component({
   selector: 'app-demo-page',
@@ -28,14 +28,16 @@ import { API_BASE_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
           <p class="mt-1 text-sm break-all text-slate-500">{{ webAppUrl }}</p>
         </a>
         <a
-          [href]="mobileApkUrl"
+          [href]="demoAccessUrl"
+          target="_blank"
+          rel="noopener"
           class="group rounded-2xl border border-slate-200 p-6 transition hover:border-red-300 hover:shadow-md dark:border-slate-800 dark:hover:border-red-800"
         >
           <p class="text-3xl">📱</p>
           <p class="mt-3 font-semibold text-slate-900 group-hover:text-red-600 dark:text-white">
-            Application Android (APK)
+            Application mobile & comptes de démo ↗
           </p>
-          <p class="mt-1 text-sm text-slate-500">Android 8.0 (API 26) minimum · ~24 Mo</p>
+          <p class="mt-1 text-sm break-all text-slate-500">{{ demoAccessUrl }}</p>
         </a>
       </div>
 
@@ -44,8 +46,10 @@ import { API_BASE_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
         <li>Ouvrez l'<a [href]="webAppUrl" target="_blank" rel="noopener">application web</a>.</li>
         <li>Cliquez sur <strong>Se connecter</strong>.</li>
         <li>
-          Utilisez l'un des comptes de démonstration listés tout en bas de la page
-          <a routerLink="/vision" fragment="comptes">Vision long terme</a>.
+          Utilisez l'un des comptes de démonstration fictifs disponibles sur la
+          <a [href]="demoAccessUrl" target="_blank" rel="noopener">page de démonstration</a>
+          (également rappelée en bas de la page
+          <a routerLink="/vision" fragment="comptes">Vision long terme</a>).
         </li>
         <li>
           Parcourez les événements, inscrivez-vous, consultez vos suggestions de profils et affichez
@@ -55,7 +59,12 @@ import { API_BASE_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
 
       <h2 id="mobile">Installer l'application Android</h2>
       <ol>
-        <li>Téléchargez l'APK depuis votre téléphone Android.</li>
+        <li>
+          Depuis votre téléphone Android, ouvrez la
+          <a [href]="demoAccessUrl" target="_blank" rel="noopener">page de démonstration</a> et
+          téléchargez l'application (ou directement
+          <a [href]="mobileApkUrl">l'APK de démonstration</a>, ~24 Mo).
+        </li>
         <li>
           Autorisez l'installation depuis des sources inconnues si Android vous le demande
           (Paramètres → Sécurité).
@@ -95,6 +104,7 @@ import { API_BASE_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
 export class DemoPage {
   protected readonly webAppUrl = WEB_APP_URL;
   protected readonly mobileApkUrl = MOBILE_APK_URL;
+  protected readonly demoAccessUrl = DEMO_ACCESS_URL;
   protected readonly apiBaseUrl = API_BASE_URL;
 
   protected readonly toc: TocItem[] = [

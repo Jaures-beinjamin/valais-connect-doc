@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Callout } from '../shared/callout';
-import { MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
+import { DEMO_ACCESS_URL, WEB_APP_URL } from '../project-links';
 
 interface Card {
   path: string;
@@ -21,7 +21,7 @@ interface Figure {
     <div class="doc">
       <!-- Héros -->
       <section
-        class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 via-red-700 to-red-900 px-6 py-12 text-white shadow-xl shadow-red-900/20 sm:px-10 sm:py-16"
+        class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 via-red-700 to-red-900 px-6 py-12 text-white shadow-xl shadow-red-900/20 sm:px-10 sm:py-16 lg:pr-96 xl:pr-[26rem]"
       >
         <div
           class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-2xl"
@@ -29,6 +29,20 @@ interface Figure {
         <div
           class="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-red-400/20 blur-3xl"
         ></div>
+        <img
+          src="images/Logo-Valais-Connect-mondial.png"
+          alt="Logo Valais Connect"
+          width="1532"
+          height="1027"
+          class="pointer-events-none absolute top-1/2 -right-6 hidden w-80 -translate-y-1/2 rounded-3xl bg-white/95 p-4 shadow-2xl lg:block xl:w-96"
+        />
+        <img
+          src="images/icon-192.png"
+          alt="Logo Valais Connect"
+          width="72"
+          height="72"
+          class="relative mb-5 h-16 w-16 rounded-2xl bg-white object-contain p-1 shadow-lg lg:hidden"
+        />
         <p class="relative text-sm font-semibold tracking-widest text-red-100 uppercase">
           Documentation officielle
         </p>
@@ -50,10 +64,12 @@ interface Figure {
             Ouvrir l'application web ↗
           </a>
           <a
-            [href]="mobileApkUrl"
+            [href]="demoAccessUrl"
+            target="_blank"
+            rel="noopener"
             class="not-doc rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
           >
-            Télécharger l'APK Android
+            App mobile & comptes démo ↗
           </a>
           <a
             routerLink="/methodologie"
@@ -146,16 +162,17 @@ interface Figure {
       </div>
 
       <app-callout type="tip" title="Tester sans rien installer">
-        L'application est déjà déployée sur Azure avec des comptes de démonstration. Les liens se
-        trouvent sur la page <a routerLink="/demo">Démo en ligne</a> et les comptes tout en bas de
-        la page <a routerLink="/vision">Vision long terme</a>.
+        L'application est déjà déployée sur Azure avec des comptes de démonstration fictifs. Le lien
+        de l'application mobile et les identifiants sont sur la
+        <a [href]="demoAccessUrl" target="_blank" rel="noopener">page de démonstration</a> ; ce lien
+        est rappelé tout en bas de la page <a routerLink="/vision">Vision long terme</a>.
       </app-callout>
     </div>
   `,
 })
 export class HomePage {
   protected readonly webAppUrl = WEB_APP_URL;
-  protected readonly mobileApkUrl = MOBILE_APK_URL;
+  protected readonly demoAccessUrl = DEMO_ACCESS_URL;
 
   protected readonly figures: Figure[] = [
     { value: '2 jours', label: 'de hackathon' },
