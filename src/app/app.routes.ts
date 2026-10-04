@@ -7,6 +7,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home').then((m) => m.HomePage),
   },
   {
+    path: 'valeur-ajoutee',
+    title: 'Valeur ajoutée · Valais Connect',
+    loadComponent: () => import('./pages/value').then((m) => m.ValuePage),
+  },
+  {
+    path: 'comparaison',
+    title: 'Club existant vs Valais Connect',
+    loadComponent: () => import('./pages/comparison').then((m) => m.ComparisonPage),
+  },
+  {
     path: 'demo',
     title: 'Démo en ligne · Valais Connect',
     loadComponent: () => import('./pages/demo').then((m) => m.DemoPage),

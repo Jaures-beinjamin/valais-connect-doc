@@ -11,7 +11,7 @@ import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../p
     <app-doc-page
       eyebrow="Démarrer"
       title="Démo en ligne"
-      lead="Valais Connect est déjà déployé sur Microsoft Azure. Vous pouvez tester l'application web et l'application Android sans rien installer."
+      lead="Valais Connect est déjà déployé sur Microsoft Azure. Vous pouvez tester l'application web et l'application Android sans rien installer, en français ou en allemand."
       [toc]="toc"
     >
       <div class="not-doc grid gap-4 sm:grid-cols-3">

@@ -52,7 +52,8 @@ interface Figure {
         <p class="relative mt-5 max-w-2xl text-lg leading-8 text-red-50">
           La plateforme qui connecte les membres du Club des Amis et du Club des Affaires :
           événements, inscriptions, matching de profils et mise en relation par QR code — sur le web
-          et sur Android.
+          et sur Android, entièrement en
+          <strong class="text-white">français et en allemand</strong>.
         </p>
         <div class="relative mt-8 flex flex-wrap gap-3">
           <a
@@ -120,6 +121,14 @@ interface Figure {
         </li>
       </ul>
 
+      <app-callout type="note" title="Pourquoi Valais Connect ?">
+        Le Club de la Foire offre déjà de beaux avantages, surtout pendant les 10 jours de la Foire.
+        Valais Connect fait vivre l'adhésion toute l'année et transforme la liste des membres en un
+        réseau d'affaires actif et mesurable. Tout est expliqué dans
+        <a routerLink="/valeur-ajoutee">Valeur ajoutée</a>, et la comparaison avant / après dans
+        <a routerLink="/comparaison">Club existant vs Valais Connect</a>.
+      </app-callout>
+
       <h2 id="innovations">Fonctionnalités innovantes</h2>
       <div class="grid gap-4 sm:grid-cols-3">
         <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800">
@@ -151,6 +160,36 @@ interface Figure {
         Le détail du fonctionnement est expliqué dans
         <a routerLink="/fonctionnalites">Fonctionnalités innovantes</a>.
       </p>
+
+      <h2 id="bilingue">Une plateforme bilingue : français et allemand</h2>
+      <p>
+        Le Valais est bilingue : Valais Connect l'est aussi. Toute la plateforme est disponible en
+        <strong>français</strong> et en <strong>allemand</strong>, pour réunir les membres du Valais
+        romand et du Haut-Valais.
+      </p>
+      <ul>
+        <li>
+          <strong>Interface</strong> : application web et application Android entièrement traduites
+          ; la langue se choisit en un clic et suit le membre d'un appareil à l'autre.
+        </li>
+        <li>
+          <strong>Contenus</strong> : événements, groupes, notifications, e-mails et résumé
+          hebdomadaire existent dans les deux langues.
+        </li>
+        <li>
+          <strong>Matching</strong> : les offres et besoins écrits en français et en allemand sont
+          rapprochés grâce à un dictionnaire de synonymes (par exemple <em>Treuhand</em> et
+          <em>fiduciaire</em>).
+        </li>
+        <li>
+          <strong>Messagerie</strong> : un bouton « Traduire » convertit le vocabulaire métier d'un
+          message vers la langue du lecteur.
+        </li>
+        <li>
+          <strong>Impact</strong> : le tableau de bord du club mesure les liens créés entre
+          francophones et germanophones.
+        </li>
+      </ul>
 
       <h2 id="parcours">Par où commencer ?</h2>
       <div class="grid gap-4 sm:grid-cols-2">
@@ -188,7 +227,7 @@ export class HomePage {
     { value: '2 jours', label: 'de hackathon' },
     { value: '18 h', label: 'de développement effectif' },
     { value: '3', label: 'applications : API, web, mobile' },
-    { value: '309', label: 'routes déclarées côté Laravel' },
+    { value: 'FR · DE', label: 'entièrement bilingue, web et mobile' },
   ];
 
   protected readonly cards: Card[] = [
