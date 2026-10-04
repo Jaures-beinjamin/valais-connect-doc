@@ -35,7 +35,7 @@ export const NAVIGATION: NavSection[] = [
       { path: '/backend', label: 'Backend Laravel' },
       { path: '/frontend', label: 'Application web Vue.js' },
       { path: '/mobile', label: 'Application mobile Kotlin' },
-      { path: '/fonctionnalites', label: 'Fonctionnalités innovantes' },
+      { path: '/fonctionnalites', label: 'Fonctionnalités (web & mobile)' },
     ],
   },
   {

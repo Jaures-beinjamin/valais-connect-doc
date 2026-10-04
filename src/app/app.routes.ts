@@ -48,7 +48,7 @@ export const routes: Routes = [
   },
   {
     path: 'fonctionnalites',
-    title: 'Fonctionnalités innovantes · Valais Connect',
+    title: 'Fonctionnalités · Valais Connect',
     loadComponent: () => import('./pages/features').then((m) => m.FeaturesPage),
   },
   {
