@@ -7,6 +7,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home').then((m) => m.HomePage),
   },
   {
+    path: 'video-presentation',
+    title: 'Vidéo de présentation (version longue) · Valais Connect',
+    loadComponent: () => import('./pages/video').then((m) => m.VideoPage),
+  },
+  {
     path: 'valeur-ajoutee',
     title: 'Valeur ajoutée · Valais Connect',
     loadComponent: () => import('./pages/value').then((m) => m.ValuePage),

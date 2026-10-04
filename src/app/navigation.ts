@@ -17,6 +17,7 @@ export const NAVIGATION: NavSection[] = [
     title: 'Démarrer',
     links: [
       { path: '/', label: 'Introduction' },
+      { path: '/video-presentation', label: 'Vidéo de présentation (longue)' },
       { path: '/valeur-ajoutee', label: 'Valeur ajoutée' },
       { path: '/comparaison', label: 'Club existant vs Valais Connect' },
       { path: '/demo', label: 'Démo en ligne' },
