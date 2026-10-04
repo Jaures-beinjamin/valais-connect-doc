@@ -48,7 +48,10 @@ export const NAVIGATION: NavSection[] = [
   },
   {
     title: 'Perspectives',
-    links: [{ path: '/vision', label: 'Vision long terme & comptes' }],
+    links: [
+      { path: '/architecture-future', label: 'Architecture future (microservices)' },
+      { path: '/vision', label: 'Vision long terme & comptes' },
+    ],
   },
 ];
 

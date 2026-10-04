@@ -2,11 +2,6 @@ import { Component } from '@angular/core';
 import { Callout } from '../shared/callout';
 import { DocPage, TocItem } from '../shared/doc-page';
 
-interface Agent {
-  name: string;
-  role: string;
-}
-
 @Component({
   selector: 'app-workflow-ai-page',
   imports: [DocPage, Callout],
@@ -59,33 +54,6 @@ interface Agent {
         unique et un périmètre d'outils limité ; un agent « lead manager » orchestre les autres et
         fait passer chaque livrable par des <strong>portes de validation (G0 à G4)</strong>.
       </p>
-      <p>Les rôles sont décrits dans le dépôt, dans le dossier <code>.github/agents/</code> :</p>
-      <div class="overflow-x-auto">
-        <table>
-          <thead>
-            <tr>
-              <th>Agent</th>
-              <th>Responsabilité</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (agent of agents; track agent.name) {
-              <tr>
-                <td>
-                  <code>{{ agent.name }}</code>
-                </td>
-                <td>{{ agent.role }}</td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-      <p>
-        Un
-        <strong>contrat commun</strong> (<code>.github/contracts/valais-connect-contract.md</code>)
-        fixe les règles partagées par tous les agents : vocabulaire métier, conventions d'API et
-        exigences de qualité.
-      </p>
 
       <app-callout type="note" title="L'IA accélère, l'humain décide">
         Les choix d'architecture, de technologies, de déploiement et de périmètre ont été pris par
@@ -129,49 +97,5 @@ export class WorkflowAiPage {
       usage:
         'Exécution locale d’un système multi-agents spécialisés, orchestré par un agent chef de projet.',
     },
-  ];
-
-  protected readonly agents: Agent[] = [
-    {
-      name: 'valais-lead-manager',
-      role: 'Orchestration, délégation, portes de validation G0→G4, arbitrages MVP.',
-    },
-    {
-      name: 'valais-innovation',
-      role: 'Proposition de valeur et idées différenciantes (matching expliqué, QR code, FR/DE).',
-    },
-    {
-      name: 'valais-architecte',
-      role: 'Modèle de données, algorithme de matching explicable, contrats front/back.',
-    },
-    {
-      name: 'valais-backend',
-      role: 'Backend Laravel : profils, matching, mises en relation, QR codes, API.',
-    },
-    {
-      name: 'valais-dev-php',
-      role: 'Logique métier PHP pure : services, value objects, enums, jetons.',
-    },
-    {
-      name: 'valais-frontend',
-      role: 'Interface Vue 3 / Tailwind, accessibilité et bilinguisme FR/DE.',
-    },
-    {
-      name: 'valais-dev-javascript',
-      role: 'Client API, scan et rendu des QR codes, i18n, composables.',
-    },
-    {
-      name: 'valais-qa-engineer',
-      role: 'Plan de test et tests automatisés (PHPUnit, bout en bout).',
-    },
-    {
-      name: 'valais-qa-securite',
-      role: 'Autorisations, protection des données (LPD suisse), consentement.',
-    },
-    {
-      name: 'valais-devops',
-      role: 'Build, migrations, seeders de démo, déploiement et plan de secours.',
-    },
-    { name: 'valais-pitch', role: 'Récit, script de démo et réponses aux questions du jury.' },
   ];
 }

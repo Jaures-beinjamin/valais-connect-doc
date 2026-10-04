@@ -67,6 +67,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/deployment').then((m) => m.DeploymentPage),
   },
   {
+    path: 'architecture-future',
+    title: 'Architecture future · Valais Connect',
+    loadComponent: () =>
+      import('./pages/future-architecture').then((m) => m.FutureArchitecturePage),
+  },
+  {
     path: 'vision',
     title: 'Vision long terme · Valais Connect',
     loadComponent: () => import('./pages/vision').then((m) => m.VisionPage),

@@ -218,7 +218,8 @@ import { DocPage, TocItem } from '../shared/doc-page';
         Chaque brique a sa page détaillée :
         <a routerLink="/backend">Backend Laravel</a>,
         <a routerLink="/frontend">Application web Vue.js</a> et
-        <a routerLink="/mobile">Application mobile Kotlin</a>.
+        <a routerLink="/mobile">Application mobile Kotlin</a>. L'évolution vers les microservices
+        est décrite dans <a routerLink="/architecture-future">Architecture future</a>.
       </app-callout>
     </app-doc-page>
   `,

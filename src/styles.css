@@ -12,23 +12,23 @@ html {
 
 /* Typographie commune à toutes les pages de documentation */
 @layer components {
-  .doc h2 {
+  .doc h2:not(.not-doc *) {
     @apply mt-14 mb-4 scroll-mt-24 border-b border-slate-200 pb-2 text-2xl font-bold tracking-tight text-slate-900 dark:border-slate-800 dark:text-white;
   }
 
-  .doc h3 {
+  .doc h3:not(.not-doc *) {
     @apply mt-10 mb-3 scroll-mt-24 text-lg font-semibold text-slate-900 dark:text-white;
   }
 
-  .doc p {
+  .doc p:not(.not-doc *) {
     @apply my-4 leading-7;
   }
 
-  .doc ul:not(.not-doc) {
+  .doc ul:not(.not-doc, .not-doc *) {
     @apply my-4 list-disc space-y-2 pl-6 marker:text-red-500;
   }
 
-  .doc ol:not(.not-doc) {
+  .doc ol:not(.not-doc, .not-doc *) {
     @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-red-600;
   }
 
