@@ -143,8 +143,8 @@ interface Figure {
           <p class="!my-0 text-2xl">📍</p>
           <h3 class="!mt-2">Géolocalisation pendant l'événement</h3>
           <p class="!my-0 text-sm">
-            Cartographie Mapbox des entreprises du Valais et, en cours d'intégration sur mobile, une
-            notification quand une personne pertinente est proche de vous.
+            Pendant un événement, une notification sur votre mobile vous signale le membre pertinent
+            qui se trouve près de vous, avec la carte Mapbox des entreprises en complément.
           </p>
         </div>
         <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800">

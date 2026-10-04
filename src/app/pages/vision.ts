@@ -146,8 +146,7 @@ export class VisionPage {
       title: 'Consolider le prototype',
       items: [
         'Réactiver la CI/CD GitHub Actions vers Azure.',
-        'Alerte de proximité pendant les événements sur Android (position + notification).',
-        'Notifications push mobiles.',
+        'Notifications push serveur (Firebase) pour être alerté même application fermée.',
         'Publication de l’application sur le Google Play Store.',
       ],
     },

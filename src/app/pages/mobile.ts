@@ -89,6 +89,14 @@ import { DocPage, TocItem } from '../shared/doc-page';
         </li>
         <li>Matching : suggestions, rencontre du mois, score et raisons du match.</li>
         <li>
+          <strong>Détection de proximité</strong> pendant un événement : localisation native, liste
+          des membres pertinents proches et notification système qui ouvre leur profil.
+        </li>
+        <li>
+          <strong>Notifications système</strong> pour les nouveaux messages, demandes et autres
+          activités du réseau.
+        </li>
+        <li>
           <strong>QR code</strong> : affichage de son propre QR code et
           <strong>scan d'un profil en un clic</strong> avec la caméra.
         </li>
@@ -123,7 +131,7 @@ export class MobilePage {
     ['Android', 'minSdk 26 (Android 8.0) · targetSdk 37'],
     ['Build', 'Gradle 9.6 · Android Gradle Plugin 9.4 · JDK 25'],
     ['Identifiant', 'com.dealmood.valaisconnectmobile'],
-    ['Permissions', 'INTERNET, CAMERA'],
+    ['Permissions', 'INTERNET, CAMERA, localisation (précise et approximative), notifications'],
   ];
 
   protected readonly structure = `app/src/main/java/com/dealmood/valaisconnectmobile/

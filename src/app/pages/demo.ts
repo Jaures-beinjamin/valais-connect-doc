@@ -107,6 +107,40 @@ import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../p
         </li>
       </ol>
 
+      <h2 id="proximite">Scénario : l'alerte de proximité</h2>
+      <p>
+        Pour voir la fonctionnalité innovante en action, il faut deux téléphones Android et deux
+        membres du Club des Affaires inscrits au même événement en cours.
+      </p>
+      <ol>
+        <li>
+          Un événement de démonstration « en cours » est préparé côté serveur avec la commande
+          <code>php artisan demo:proximity-event</code> : il inscrit automatiquement deux membres de
+          démonstration complémentaires (une consultante et une fiduciaire).
+        </li>
+        <li>Sur chaque téléphone, connectez-vous avec l'un des deux comptes.</li>
+        <li>
+          Ouvrez l'onglet <strong>Événements</strong>, puis « Démo Valais Connect — Rendez-vous
+          économique ».
+        </li>
+        <li>
+          Dans la section <strong>Détection de proximité</strong>, touchez « Activer la détection »
+          et autorisez la localisation et les notifications.
+        </li>
+        <li>
+          Rapprochez les deux téléphones : en moins d'une minute, chacun reçoit une
+          <strong>notification</strong> « Un membre pertinent est près de vous ».
+        </li>
+        <li>
+          Touchez la notification : le <strong>profil</strong> s'ouvre avec les raisons du match. La
+          fiche de l'événement affiche la distance et le score.
+        </li>
+      </ol>
+      <app-callout type="tip" title="Conseil pour la démo">
+        Activez la localisation en mode « haute précision » et faites la démonstration près d'une
+        fenêtre ou à l'extérieur : le GPS y est plus précis.
+      </app-callout>
+
       <h2 id="api">API publique</h2>
       <p>
         L'API consommée par l'application mobile est accessible à l'adresse
@@ -126,6 +160,7 @@ export class DemoPage {
     { id: 'web', label: 'Application web' },
     { id: 'mobile', label: 'Application Android' },
     { id: 'scenario', label: 'Scénario conseillé' },
+    { id: 'proximite', label: 'Alerte de proximité' },
     { id: 'api', label: 'API publique' },
   ];
 }

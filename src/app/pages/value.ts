@@ -693,7 +693,7 @@ export class ValuePage {
     'Liste des participants et rendez-vous d’affaires de l’événement.',
     'Messagerie pour fixer un rendez-vous sur place.',
     'Pass partagé pour le collaborateur qui représente l’entreprise.',
-    'Bientôt : alerte quand un membre pertinent est à proximité.',
+    'Alerte quand un membre pertinent est à proximité, par notification sur le téléphone.',
   ];
 
   protected readonly webValue = [
@@ -719,7 +719,7 @@ export class ValuePage {
     {
       icon: '📍',
       title: 'Géolocalisation pendant les événements',
-      text: 'Carte des entreprises membres et, en cours d’intégration, alerte quand une personne pertinente est à proximité.',
+      text: 'Pendant un événement, une notification signale le membre pertinent qui est près de vous ; carte des entreprises en complément.',
     },
     {
       icon: '🤝',

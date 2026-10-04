@@ -114,6 +114,10 @@ interface Endpoint {
           08:00.
         </li>
         <li>
+          <code>presences:purge</code> : suppression, chaque heure, des positions partagées pendant
+          les événements terminés.
+        </li>
+        <li>
           Notifications stockées en base (affichées dans l'application) et envoyées par e-mail selon
           les préférences du membre, en français ou en allemand.
         </li>
@@ -219,6 +223,17 @@ export class BackendPage {
       method: 'GET',
       path: 'members/{id}/match',
       description: 'Score et raisons du match avec un membre.',
+    },
+    {
+      method: 'POST',
+      path: 'events/{id}/presence',
+      description:
+        'Partage de position pendant l’événement ; renvoie les membres pertinents proches.',
+    },
+    {
+      method: 'DELETE',
+      path: 'events/{id}/presence',
+      description: 'Arrêt de la détection et suppression de la position.',
     },
     { method: 'GET', path: 'profiles/me/qr', description: 'QR code personnel du membre connecté.' },
     {

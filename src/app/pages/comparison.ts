@@ -573,7 +573,7 @@ export class ComparisonPage {
       capability: 'Alerte de proximité',
       existing: 'none',
       existingNote: 'Non mentionné.',
-      app: 'soon',
+      app: 'yes',
       appNote: 'Notification quand un membre pertinent est à proximité.',
     },
     {
@@ -695,7 +695,7 @@ export class ComparisonPage {
       before:
         'Elle profite de l’apéritif et de la Soirée WOW, et rencontre les personnes qu’elle croise.',
       after:
-        'Elle scanne le QR code de ses interlocuteurs en un clic. Bientôt, une notification lui signalera qu’un membre pertinent est à proximité.',
+        'Une notification lui signale que Nathalie, fiduciaire avec qui elle a une forte compatibilité, est à quelques mètres ; elle scanne ensuite son QR code en un clic.',
     },
     {
       period: 'Après la Foire',
@@ -734,7 +734,7 @@ export class ComparisonPage {
       rank: 3,
       title: 'Le scan de profil et la géolocalisation',
       before: 'Les rencontres de la Foire dépendent du hasard.',
-      after: 'Un scan suffit pour garder le contact ; bientôt, une alerte de proximité.',
+      after: 'Une alerte signale le bon contact à proximité, et un scan suffit pour le garder.',
     },
     {
       rank: 4,

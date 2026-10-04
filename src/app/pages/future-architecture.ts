@@ -514,8 +514,8 @@ export class FutureArchitecturePage {
     },
     {
       number: 3,
-      title: 'Créer le service Proximité',
-      why: 'C’est un nouveau service, sans code à migrer. Il répond au besoin temps réel que le monolithe PHP gère mal, et active la fonctionnalité innovante d’alerte de proximité.',
+      title: 'Extraire le service Proximité',
+      why: 'L’alerte de proximité fonctionne déjà dans le monolithe (positions envoyées toutes les 20 secondes). En service dédié, avec Redis et le temps réel, elle passera à des centaines de participants simultanés lors des grands événements.',
     },
     {
       number: 4,

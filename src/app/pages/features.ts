@@ -176,52 +176,109 @@ interface ComparisonRow {
         qui l'on a un bon score de matching se trouve <strong>près de soi</strong>. On passe de «
         qui dois-je rencontrer ? » à « elle est à dix mètres, allez lui parler ».
       </p>
-      <p><strong>Ce qui fonctionne déjà :</strong></p>
+      <h4 class="mt-6 font-semibold text-slate-900 dark:text-white">
+        Comment ça marche, étape par étape
+      </h4>
+      <ol>
+        <li>
+          Le membre du Club des Affaires, <strong>inscrit et confirmé</strong> à un événement, ouvre
+          la fiche de l'événement sur son téléphone et touche
+          <strong>« Activer la détection »</strong>.
+        </li>
+        <li>
+          Android demande l'autorisation d'accéder à la position et d'afficher des notifications. Le
+          membre garde la main : il peut arrêter la détection à tout moment.
+        </li>
+        <li>
+          L'application lit la position du téléphone (GPS et réseau) et l'envoie au serveur toutes
+          les <strong>20 secondes</strong>, uniquement pendant l'événement (d'une heure avant le
+          début à une heure après la fin).
+        </li>
+        <li>
+          Le serveur compare cette position à celles des autres participants confirmés, partagées
+          dans les <strong>5 dernières minutes</strong>, et calcule la distance (formule de
+          haversine).
+        </li>
+        <li>
+          Un participant est considéré comme proche dans un rayon de <strong>50 mètres</strong>,
+          élargi selon la précision annoncée par les deux téléphones (jusqu'à 100 mètres de
+          tolérance, car le GPS est moins précis en intérieur).
+        </li>
+        <li>
+          Parmi les personnes proches, seules celles dont le
+          <strong>score de matching atteint 35/100</strong> sont retenues : pas d'alerte inutile.
+        </li>
+        <li>
+          Pour chaque nouvelle personne pertinente, le téléphone affiche une
+          <strong>notification système</strong>, par exemple : « Un membre pertinent est près de
+          vous — Nathalie Carron, Fiduciaire Rhône SA, est à ~12 m (compatibilité 72/100) ». Chaque
+          personne n'est signalée qu'une fois par événement.
+        </li>
+        <li>
+          Toucher la notification <strong>ouvre directement son profil</strong>, avec les raisons du
+          match. La fiche de l'événement liste aussi en continu les membres proches : distance,
+          score et raisons.
+        </li>
+        <li>
+          L'alerte est aussi enregistrée dans les notifications du compte, visibles sur le web.
+        </li>
+      </ol>
+
+      <h4 class="mt-6 font-semibold text-slate-900 dark:text-white">Respect de la vie privée</h4>
+      <ul>
+        <li>
+          La position n'est partagée qu'après activation volontaire, et seulement avec le serveur du
+          club : aucun membre ne voit la position d'un autre, seulement sa distance approximative.
+        </li>
+        <li>« Arrêter » supprime immédiatement la position sur le serveur.</li>
+        <li>Les positions des événements terminés sont supprimées automatiquement chaque heure.</li>
+        <li>
+          Seuls les membres du Club des Affaires inscrits et confirmés à l'événement participent.
+        </li>
+      </ul>
+
+      <h4 class="mt-6 font-semibold text-slate-900 dark:text-white">
+        La cartographie, en complément
+      </h4>
       <ul>
         <li>
           <strong>Géocodage des entreprises</strong> : lorsqu'un administrateur saisit une adresse,
           le serveur interroge Mapbox (limité à la Suisse, orienté vers le Valais) et enregistre
-          latitude et longitude. Sans choix explicite dans l'autocomplétion, l'adresse est géocodée
-          automatiquement à l'enregistrement.
+          latitude et longitude.
         </li>
         <li>
           <strong>Carte interactive des entreprises</strong> (web) : vue liste ou carte Mapbox,
-          points regroupés par zone, fiche au clic, style sombre en thème sombre. Chaque fiche
-          entreprise affiche une carte de localisation.
-        </li>
-        <li>
-          <strong>Score de matching</strong> disponible pour chaque paire de membres : c'est le
-          filtre qui évitera les alertes inutiles.
-        </li>
-        <li>
-          <strong>Check-in par QR code</strong> : il sait déjà qui est physiquement présent à
-          l'événement.
+          points regroupés par zone, fiche au clic, style sombre en thème sombre.
         </li>
       </ul>
-      <p><strong>Fonctionnement prévu de l'alerte de proximité :</strong></p>
-      <ol>
-        <li>
-          Le participant fait son check-in : la détection est activée pour la durée de l'événement
-          uniquement.
-        </li>
-        <li>
-          L'application mobile partage sa position (GPS en extérieur, Bluetooth en intérieur).
-        </li>
-        <li>
-          Le serveur compare les positions des participants présents et ne retient que les profils
-          au score de matching suffisant.
-        </li>
-        <li>
-          Une <strong>notification</strong> signale la personne proche ; un clic ouvre son profil et
-          les raisons du match.
-        </li>
-      </ol>
-      <app-callout type="warning" title="Statut : en cours d'intégration">
-        La cartographie, le géocodage, le matching et le check-in sont opérationnels. L'alerte de
-        proximité (partage de position et notification système sur Android) est la prochaine étape :
-        c'est l'une des raisons du choix d'une application native. Son architecture est décrite dans
-        <a routerLink="/architecture-future">Architecture future</a>.
-      </app-callout>
+      <div class="not-doc my-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-sky-200 p-5 dark:border-sky-900">
+          <p class="text-xs font-bold tracking-wider text-sky-700 uppercase dark:text-sky-300">
+            Web
+          </p>
+          <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm">
+            <li>Carte Mapbox des entreprises membres.</li>
+            <li>Les alertes de proximité apparaissent dans les notifications du compte.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-emerald-200 p-5 dark:border-emerald-900">
+          <p
+            class="text-xs font-bold tracking-wider text-emerald-700 uppercase dark:text-emerald-300"
+          >
+            Mobile natif
+          </p>
+          <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm">
+            <li>
+              Section « Détection de proximité » dans la fiche de l'événement : activer, arrêter,
+              voir les membres proches.
+            </li>
+            <li>
+              Localisation native d'Android (GPS et réseau) et notification système qui ouvre le
+              profil.
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <!-- 3. QR -->
       <h3 id="scan">3. Le scan d'un profil en un clic</h3>
@@ -407,8 +464,13 @@ interface ComparisonRow {
       <p>Par transparence, voici les fonctionnalités prévues mais pas encore livrées :</p>
       <ul>
         <li>
-          Alerte de proximité et <strong>notifications push</strong> sur mobile (aujourd'hui :
-          notifications dans l'application et par e-mail).
+          Notifications <strong>push serveur</strong> lorsque l'application est complètement fermée
+          (aujourd'hui : notifications système tant que l'application tourne, y compris en
+          arrière-plan, plus les notifications dans l'application et par e-mail).
+        </li>
+        <li>
+          Détection de proximité par <strong>Bluetooth</strong>, plus précise en intérieur
+          (aujourd'hui : GPS et réseau, avec tolérance de précision).
         </li>
         <li>
           Messagerie en <strong>temps réel</strong> par WebSocket (aujourd'hui : actualisation
@@ -768,6 +830,7 @@ export class FeaturesPage {
       ],
       mobile: [
         'Badges de non-lus actualisés toutes les 30 s.',
+        'Notifications système Android pour chaque nouvelle notification (message, demande, place libérée…) ; un appui ouvre directement l’écran concerné.',
         'Liste des notifications ; un appui la marque comme lue et ouvre directement l’écran concerné dans l’application.',
         'Interrupteur des notifications par e-mail.',
       ],
@@ -830,6 +893,14 @@ export class FeaturesPage {
 
   protected readonly nativeCapabilities: NativeCapability[] = [
     {
+      title: 'Alerte de proximité',
+      text: 'Localisation native (GPS et réseau) pendant l’événement et notification système dès qu’un membre pertinent est proche ; un appui ouvre son profil.',
+    },
+    {
+      title: 'Notifications système',
+      text: 'Les nouvelles notifications du réseau (messages, demandes, places libérées…) s’affichent dans la barre de notifications d’Android et ouvrent le bon écran.',
+    },
+    {
       title: 'Scanner caméra natif',
       text: 'Lecture des QR codes par la caméra via ZXing, plus rapide et plus fiable que le scanner du navigateur, sur tous les téléphones Android.',
     },
@@ -885,6 +956,16 @@ export class FeaturesPage {
     { feature: 'Rendez-vous d’affaires', web: 'Oui', mobile: 'Oui' },
     { feature: 'Mon QR code', web: 'Oui, imprimable', mobile: 'Oui, généré sur le téléphone' },
     { feature: 'Scan de QR code', web: 'Selon le navigateur', mobile: 'Scanner caméra natif' },
+    {
+      feature: 'Alerte de proximité pendant un événement',
+      web: 'Alertes visibles dans les notifications',
+      mobile: 'Oui : localisation, liste des membres proches et notification système',
+    },
+    {
+      feature: 'Notifications système',
+      web: 'Cloche dans l’en-tête',
+      mobile: 'Oui, dans la barre de notifications d’Android',
+    },
     { feature: 'Carte des entreprises (Mapbox)', web: 'Oui', mobile: 'Liste et fiches' },
     { feature: 'Communauté et mentorat', web: 'Oui', mobile: 'Oui' },
     { feature: 'Opportunités', web: 'Oui', mobile: 'Oui' },
