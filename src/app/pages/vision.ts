@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Callout } from '../shared/callout';
 import { DocPage, TocItem } from '../shared/doc-page';
-import { DEMO_ACCESS_URL, WEB_APP_URL } from '../project-links';
+import { DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
 
 interface RoadmapStage {
   horizon: string;
@@ -59,31 +59,47 @@ interface RoadmapStage {
         L'application est déployée sur
         <a [href]="webAppUrl" target="_blank" rel="noopener">Azure</a>. Des
         <strong>comptes fictifs</strong> ont été créés pour la démonstration ; ils fonctionnent sur
-        le web comme sur l'application Android. Les identifiants, ainsi que le lien de l'application
-        mobile, sont disponibles sur la page de démonstration :
+        le web comme sur l'application Android. Téléchargez l'application mobile, puis
+        connectez-vous avec les identifiants fournis sur la page des comptes de démo :
       </p>
-      <a
-        [href]="demoAccessUrl"
-        target="_blank"
-        rel="noopener"
-        class="not-doc group my-6 flex items-center gap-4 rounded-2xl border-2 border-red-200 bg-red-50 p-5 transition hover:border-red-400 hover:shadow-md dark:border-red-900 dark:bg-red-950/40 dark:hover:border-red-700"
-      >
-        <img
-          src="images/icon-192.png"
-          alt=""
-          width="56"
-          height="56"
-          class="h-14 w-14 shrink-0 rounded-xl bg-white object-contain"
-        />
-        <span class="min-w-0">
-          <span
-            class="block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+      <div class="not-doc my-6 grid gap-4 md:grid-cols-2">
+        <a
+          [href]="mobileApkUrl"
+          target="_blank"
+          rel="noopener"
+          class="group flex items-center gap-4 rounded-2xl border-2 border-red-200 bg-red-50 p-5 transition hover:border-red-400 hover:shadow-md dark:border-red-900 dark:bg-red-950/40 dark:hover:border-red-700"
+        >
+          <span class="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white text-2xl"
+            >📱</span
           >
-            Accéder aux comptes de démonstration ↗
+          <span class="min-w-0">
+            <span
+              class="block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+            >
+              Télécharger l’application mobile ↗
+            </span>
+            <span class="mt-1 block text-sm break-all text-slate-500">{{ mobileApkUrl }}</span>
           </span>
-          <span class="mt-1 block text-sm break-all text-slate-500">{{ demoAccessUrl }}</span>
-        </span>
-      </a>
+        </a>
+        <a
+          [href]="demoAccessUrl"
+          target="_blank"
+          rel="noopener"
+          class="group flex items-center gap-4 rounded-2xl border-2 border-red-200 bg-red-50 p-5 transition hover:border-red-400 hover:shadow-md dark:border-red-900 dark:bg-red-950/40 dark:hover:border-red-700"
+        >
+          <span class="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white text-2xl"
+            >🔑</span
+          >
+          <span class="min-w-0">
+            <span
+              class="block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+            >
+              Accéder aux comptes de démo ↗
+            </span>
+            <span class="mt-1 block text-sm break-all text-slate-500">{{ demoAccessUrl }}</span>
+          </span>
+        </a>
+      </div>
       <p>Les profils disponibles permettent de tester :</p>
       <div class="overflow-x-auto">
         <table>
@@ -115,6 +131,7 @@ interface RoadmapStage {
 export class VisionPage {
   protected readonly webAppUrl = WEB_APP_URL;
   protected readonly demoAccessUrl = DEMO_ACCESS_URL;
+  protected readonly mobileApkUrl = MOBILE_APK_URL;
 
   protected readonly toc: TocItem[] = [
     { id: 'vision', label: 'La vision' },

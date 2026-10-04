@@ -14,7 +14,7 @@ import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../p
       lead="Valais Connect est déjà déployé sur Microsoft Azure. Vous pouvez tester l'application web et l'application Android sans rien installer."
       [toc]="toc"
     >
-      <div class="not-doc grid gap-4 sm:grid-cols-2">
+      <div class="not-doc grid gap-4 sm:grid-cols-3">
         <a
           [href]="webAppUrl"
           target="_blank"
@@ -28,16 +28,32 @@ import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../p
           <p class="mt-1 text-sm break-all text-slate-500">{{ webAppUrl }}</p>
         </a>
         <a
-          [href]="demoAccessUrl"
+          [href]="mobileApkUrl"
           target="_blank"
           rel="noopener"
           class="group rounded-2xl border border-slate-200 p-6 transition hover:border-red-300 hover:shadow-md dark:border-slate-800 dark:hover:border-red-800"
         >
           <p class="text-3xl">📱</p>
           <p class="mt-3 font-semibold text-slate-900 group-hover:text-red-600 dark:text-white">
-            Application mobile & comptes de démo ↗
+            Application mobile (APK) ↗
           </p>
-          <p class="mt-1 text-sm break-all text-slate-500">{{ demoAccessUrl }}</p>
+          <p class="mt-1 text-sm text-slate-500">
+            Téléchargement depuis Google Drive · Android 8.0 minimum
+          </p>
+        </a>
+        <a
+          [href]="demoAccessUrl"
+          target="_blank"
+          rel="noopener"
+          class="group rounded-2xl border border-slate-200 p-6 transition hover:border-red-300 hover:shadow-md dark:border-slate-800 dark:hover:border-red-800"
+        >
+          <p class="text-3xl">🔑</p>
+          <p class="mt-3 font-semibold text-slate-900 group-hover:text-red-600 dark:text-white">
+            Comptes de démo ↗
+          </p>
+          <p class="mt-1 text-sm text-slate-500">
+            Identifiants fictifs pour se connecter sur le web et le mobile
+          </p>
         </a>
       </div>
 
@@ -60,10 +76,9 @@ import { API_BASE_URL, DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../p
       <h2 id="mobile">Installer l'application Android</h2>
       <ol>
         <li>
-          Depuis votre téléphone Android, ouvrez la
-          <a [href]="demoAccessUrl" target="_blank" rel="noopener">page de démonstration</a> et
-          téléchargez l'application (ou directement
-          <a [href]="mobileApkUrl">l'APK de démonstration</a>, ~24 Mo).
+          Depuis votre téléphone Android, ouvrez le
+          <a [href]="mobileApkUrl" target="_blank" rel="noopener">dossier Google Drive</a> et
+          téléchargez l'APK de Valais Connect (~24 Mo).
         </li>
         <li>
           Autorisez l'installation depuis des sources inconnues si Android vous le demande

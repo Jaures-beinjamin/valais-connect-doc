@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Callout } from '../shared/callout';
-import { DEMO_ACCESS_URL, WEB_APP_URL } from '../project-links';
+import { DEMO_ACCESS_URL, MOBILE_APK_URL, WEB_APP_URL } from '../project-links';
 
 interface Card {
   path: string;
@@ -64,12 +64,20 @@ interface Figure {
             Ouvrir l'application web ↗
           </a>
           <a
+            [href]="mobileApkUrl"
+            target="_blank"
+            rel="noopener"
+            class="not-doc rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Télécharger l'app mobile ↗
+          </a>
+          <a
             [href]="demoAccessUrl"
             target="_blank"
             rel="noopener"
             class="not-doc rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
           >
-            App mobile & comptes démo ↗
+            Comptes de démo ↗
           </a>
           <a
             routerLink="/methodologie"
@@ -162,10 +170,11 @@ interface Figure {
       </div>
 
       <app-callout type="tip" title="Tester sans rien installer">
-        L'application est déjà déployée sur Azure avec des comptes de démonstration fictifs. Le lien
-        de l'application mobile et les identifiants sont sur la
-        <a [href]="demoAccessUrl" target="_blank" rel="noopener">page de démonstration</a> ; ce lien
-        est rappelé tout en bas de la page <a routerLink="/vision">Vision long terme</a>.
+        L'application est déjà déployée sur Azure avec des comptes de démonstration fictifs.
+        Téléchargez l'<a [href]="mobileApkUrl" target="_blank" rel="noopener">application mobile</a>
+        et récupérez les identifiants sur la
+        <a [href]="demoAccessUrl" target="_blank" rel="noopener">page des comptes de démo</a> ; ces
+        liens sont rappelés tout en bas de la page <a routerLink="/vision">Vision long terme</a>.
       </app-callout>
     </div>
   `,
@@ -173,6 +182,7 @@ interface Figure {
 export class HomePage {
   protected readonly webAppUrl = WEB_APP_URL;
   protected readonly demoAccessUrl = DEMO_ACCESS_URL;
+  protected readonly mobileApkUrl = MOBILE_APK_URL;
 
   protected readonly figures: Figure[] = [
     { value: '2 jours', label: 'de hackathon' },
