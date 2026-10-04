@@ -1,0 +1,138 @@
+<!-- Barre supérieure -->
+<header
+  class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85"
+>
+  <div class="mx-auto flex h-16 max-w-[90rem] items-center gap-4 px-4 sm:px-6 lg:px-8">
+    <button
+      type="button"
+      class="-ml-2 rounded-lg p-2 text-slate-600 hover:bg-slate-100 lg:hidden dark:text-slate-300 dark:hover:bg-slate-800"
+      (click)="menuOpen.set(!menuOpen())"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Ouvrir le menu"
+    >
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <a routerLink="/" class="flex items-center gap-2.5" (click)="closeMenu()">
+      <span
+        class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-red-600 to-red-700 text-sm font-black text-white shadow-sm shadow-red-600/30"
+      >
+        VC
+      </span>
+      <span class="leading-tight">
+        <span class="block font-bold text-slate-900 dark:text-white">Valais Connect</span>
+        <span class="block text-xs text-slate-500 dark:text-slate-400">Documentation</span>
+      </span>
+    </a>
+
+    <span
+      class="ml-2 hidden rounded-full border border-red-200 bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-700 sm:inline dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
+    >
+      Hackathon · 2 jours
+    </span>
+
+    <nav class="ml-auto flex items-center gap-1 text-sm font-medium">
+      <a
+        routerLink="/demo"
+        class="rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+      >
+        Démo
+      </a>
+      <a
+        routerLink="/installation-web"
+        class="hidden rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 sm:inline-block dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+      >
+        Installation
+      </a>
+    </nav>
+  </div>
+</header>
+
+<div class="mx-auto flex max-w-[90rem] px-4 sm:px-6 lg:px-8">
+  <!-- Voile du tiroir mobile -->
+  @if (menuOpen()) {
+    <div class="fixed inset-0 z-30 bg-slate-900/40 lg:hidden" (click)="closeMenu()"></div>
+  }
+
+  <!-- Menu latéral -->
+  <aside
+    class="fixed inset-y-0 left-0 z-30 w-72 overflow-y-auto border-r border-slate-200 bg-white px-6 pt-20 pb-10 transition-transform lg:sticky lg:top-16 lg:z-auto lg:block lg:h-[calc(100dvh-4rem)] lg:w-64 lg:shrink-0 lg:translate-x-0 lg:border-r-0 lg:bg-transparent lg:px-0 lg:pt-8 lg:pr-8 dark:border-slate-800 dark:bg-slate-950 lg:dark:bg-transparent"
+    [class.-translate-x-full]="!menuOpen()"
+  >
+    <nav class="space-y-8">
+      @for (section of navigation; track section.title) {
+        <div>
+          <p
+            class="mb-3 text-xs font-semibold tracking-wider text-slate-900 uppercase dark:text-white"
+          >
+            {{ section.title }}
+          </p>
+          <ul class="space-y-1 border-l border-slate-200 dark:border-slate-800">
+            @for (link of section.links; track link.path) {
+              <li>
+                <a
+                  [routerLink]="link.path"
+                  routerLinkActive="!border-red-600 !text-red-600 font-semibold dark:!text-red-400 dark:!border-red-400"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="closeMenu()"
+                  class="-ml-px block border-l border-transparent py-1 pl-4 text-sm text-slate-600 transition hover:border-slate-400 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </nav>
+  </aside>
+
+  <!-- Contenu -->
+  <main class="min-w-0 flex-1 py-10 lg:pl-8">
+    <router-outlet />
+
+    @if (previous() || next()) {
+      <div
+        class="mt-16 grid gap-4 border-t border-slate-200 pt-8 sm:grid-cols-2 dark:border-slate-800"
+      >
+        @if (previous(); as prev) {
+          <a
+            [routerLink]="prev.path"
+            class="group rounded-xl border border-slate-200 p-4 transition hover:border-red-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-red-800"
+          >
+            <span class="text-xs text-slate-500">← Précédent</span>
+            <span
+              class="mt-1 block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+            >
+              {{ prev.label }}
+            </span>
+          </a>
+        } @else {
+          <span></span>
+        }
+        @if (next(); as nxt) {
+          <a
+            [routerLink]="nxt.path"
+            class="group rounded-xl border border-slate-200 p-4 text-right transition hover:border-red-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-red-800"
+          >
+            <span class="text-xs text-slate-500">Suivant →</span>
+            <span
+              class="mt-1 block font-semibold text-slate-900 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400"
+            >
+              {{ nxt.label }}
+            </span>
+          </a>
+        }
+      </div>
+    }
+
+    <footer
+      class="mt-16 border-t border-slate-200 pt-6 pb-4 text-sm text-slate-500 dark:border-slate-800"
+    >
+      Valais Connect — projet réalisé dans le cadre d'un hackathon de deux jours. Documentation
+      technique et méthodologique.
+    </footer>
+  </main>
+</div>

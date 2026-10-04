@@ -1,3 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Typographie commune à toutes les pages de documentation */
+@layer components {
+  .doc h2 {
+    @apply mt-14 mb-4 scroll-mt-24 border-b border-slate-200 pb-2 text-2xl font-bold tracking-tight text-slate-900 dark:border-slate-800 dark:text-white;
+  }
+
+  .doc h3 {
+    @apply mt-10 mb-3 scroll-mt-24 text-lg font-semibold text-slate-900 dark:text-white;
+  }
+
+  .doc p {
+    @apply my-4 leading-7;
+  }
+
+  .doc ul:not(.not-doc) {
+    @apply my-4 list-disc space-y-2 pl-6 marker:text-red-500;
+  }
+
+  .doc ol:not(.not-doc) {
+    @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-red-600;
+  }
+
+  .doc strong {
+    @apply font-semibold text-slate-900 dark:text-white;
+  }
+
+  .doc a:not(.not-doc) {
+    @apply font-medium text-red-600 underline decoration-red-300 underline-offset-4 hover:decoration-red-600 dark:text-red-400;
+  }
+
+  .doc :not(pre) > code {
+    @apply rounded-md bg-slate-100 px-1.5 py-0.5 font-mono text-[0.85em] text-slate-800 dark:bg-slate-800 dark:text-slate-200;
+  }
+
+  .doc table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .doc th {
+    @apply border-b-2 border-slate-200 px-3 py-2 font-semibold whitespace-nowrap text-slate-900 dark:border-slate-700 dark:text-white;
+  }
+
+  .doc td {
+    @apply border-b border-slate-100 px-3 py-2 align-top dark:border-slate-800;
+  }
+}
